@@ -1,0 +1,108 @@
+% Missouri University of Science and Technology (S&T)
+% LaTeX Thesis and Dissertation Format File
+% Dr. Daniel Tauritz
+% Version 0.01
+%
+% Based on format file created by James Friend 3/3/1998
+% and modified by many people since.
+% 
+% This file is a part of the S&T thesis package.  
+%
+% For documentation, look in the docs directory, and look
+% around in the files.  LaTeX isn't easy to learn or
+% use, but picking up a copy of LaTeX, A Document Preparation
+% System by Leslie Lamport from the bookstore might help.
+%
+% If you find you can't do something unusual with this format,
+% there might be a "package" in the packages directory to
+% help you out.  For example, lgrind for generating nice
+% program code listings.
+%
+% If you need to change something in the format and have
+% huevos, you can try modifying the MSTthsis.cls file.
+%
+% If you don't know the formatting rules for your thesis or
+% references, see the Graduate Studies Assistant
+% or the Writing Center.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\documentclass[chap]{mst_thesis}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{comment}
+\usepackage{amsthm}
+\usepackage{subfigure}
+%\usepackage[left=1.5in,top=1in,right=1.25in,bottom=.3in]{geometry} %For the stupid, stupid margins
+\newcommand {\remline} {\vspace{-12pt}}
+
+% Use the first command below if you want captions over 1 line indented. A side
+% effect of this is to remove the use of bold for captions. To restore bold,
+% also include the second line below.
+%\usepackage[hang]{caption}  
+% change the caption delimiter in caption2.sty from a colon to a period:
+%\renewcommand\captionlabeldelim{.}
+
+\usepackage{hangcaption}
+
+% The following command will specify the correct graphics driver for the
+% graphics routines used with LaTeX.  Possible options include:
+% template, dvips, oztex, textures, dvialw, emtex, dvilaser, psprint,
+% dvipsone, dvi2ps, pctexps, pctex32, pctexwin, pctexhp, pubps,
+% dviwin, dvitops, ln, dvipsnames.
+\ExecuteOptions{textures}
+
+
+%\includeonly{MSTchap1}  % use \includeonly to process only
+                         % the file(s) listed inside the braces
+                         % separate more than one file with a comma
+\begin{document}
+% Leave the following lines alone:
+\addtocontents{toc}{\hfill Page}%for "Page" at top of TOC 
+\addtocontents{lof}{\noindent Figure \hfill Page}%for the Figures page
+\addtocontents{loa}{\noindent Algorithm \hfill Page}
+\addtocontents{lot}{\noindent Table \hfill Page}%for the Tables page
+\addtocontents{los}{\noindent \protect\makebox[1in][l]{\underline{Symbol}} \underline{Description} \hfill \\}%for the Symbols page 
+
+\include{title}      % title page material
+
+\include{abstract}   % abstract page
+\include{ack}        % acknowledgements page
+\tableofcontents     % table of contents (automatically generated)
+\listoffigures       % required if there are figures (automatically generated)
+%\listofalgorithms
+\listoftables        % required if there are tables (automatically generated)
+\nomenclature        % required if there are variables (automatically generated
+                     % if you use the \symbol command)
+
+%\include{nomenclature}
+
+% Leave the following line alone:
+\addtocontents{toc}{\parindent0pt\vskip12pt SECTION} %toc entry
+
+\include{intro}
+\include{related_work}
+\include{methodology}
+\include{experimental_design}
+\include{results}
+\include{discussion}
+\include{conclusions}
+
+% Leave the following two lines alone:
+\appendix            % This command is used only once!
+                     % It resets the formatting for the appendices.
+\include{appendix}
+
+\specialhead{BIBLIOGRAPHY}
+\remline
+%\singlespace
+\bibliography{references}
+\bibliographystyle{abbrv}
+\include{vita}
+ 
+\end{document}
